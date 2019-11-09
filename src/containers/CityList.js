@@ -1,4 +1,5 @@
 import React from "react";
+import City from "../components/City";
 
 class CityList extends React.Component {
   //   rendenCity(name, temperature) {
@@ -17,10 +18,17 @@ class CityList extends React.Component {
   createList(props) {
     let cityNameList = [];
     for (let i = 0; i < props.favoriteCities.length; i++) {
-      let cityName = props.favoriteCities[i];
-      if (cityName !== null) {
+      let cityInfo = props.favoriteCities[i];
+      if (cityInfo !== null) {
         // list.push(this.rendenCity(city.name, city.temperature));
-        cityNameList.push(<div key={i}>{cityName}</div>);
+        cityNameList.push(
+          <li key={cityInfo.cityName}>
+            <City
+              cityName={cityInfo.cityName}
+              temperature={cityInfo.data.main.temp}
+            />
+          </li>
+        );
       }
     }
     if (cityNameList.length === 0) {
@@ -42,7 +50,11 @@ class CityList extends React.Component {
             onKeyDown={this.onBtnClick}
           />
         </form>
-        {this.createList(this.props)}
+        {this.props.isFetching ? (
+          <p>Загрузка...</p>
+        ) : (
+          <ul>{this.createList(this.props)}</ul>
+        )}
       </div>
     );
   }
