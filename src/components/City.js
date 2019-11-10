@@ -5,7 +5,12 @@ class City extends React.Component {
     return (
       <div>
         <h2> {this.props.cityName} </h2>
-        <p> {this.props.temperature} </p>
+        <button onClick={() => this.props.deleteCity(this.props.index)}>Delete</button>
+        <p> Coordinates: <i>[{this.props.longtitude} : {this.props.latitude}]</i></p>
+        <p> Weather description: <i>{this.props.description}</i></p>
+        <p> Temperature: <i>{this.props.temperature}K </i></p>
+        <p> Humidity: <i>{this.props.humidity}%</i></p>
+        <p> Wind: <i>{this.props.windSpeed}m/c</i></p>
       </div>
     );
   }

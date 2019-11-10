@@ -1,8 +1,9 @@
 import React from "react";
 import MainCity from "../components/MainCity";
 import { connect } from "react-redux";
-import { addFavoriteCity } from "../actions/favoriteCitiesAction";
+import { addFavoriteCity, deleteFavoriteCity } from "../actions/favoriteCitiesAction";
 import CityList from "./CityList";
+import {getMainCity} from "../actions/mainLocationCity"
 // import './App.css';
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
           favoriteCities={this.props.favoriteCities.favoriteCities}
           isFetching={this.props.favoriteCities.isFetching}
           addCity={this.props.addFavoriteAction}
+          deleteCity={this.props.deleteFavoriteAction}
         />
       </div>
     );
@@ -21,7 +23,6 @@ class App extends React.Component {
 }
 
 const mapStateToProps = store => {
-  // console.log(store); // посмотрим, что же у нас в store?
   return {
     // mainCity: store.mainCity,
     favoriteCities: store.favoriteCities,
@@ -31,7 +32,9 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addFavoriteAction: cityName => dispatch(addFavoriteCity(cityName))
+    addFavoriteAction: cityName => dispatch(addFavoriteCity(cityName)),
+    deleteFavoriteAction: cityIndex => dispatch(deleteFavoriteCity(cityIndex))
+    // getMainCityAction: () => dispatch(getMainCity())
   };
 };
 

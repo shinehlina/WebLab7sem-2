@@ -24,8 +24,16 @@ class CityList extends React.Component {
         cityNameList.push(
           <li key={cityInfo.cityName}>
             <City
+              index={i}
               cityName={cityInfo.cityName}
+              longtitude={cityInfo.data.coord.lon}
+              latitude={cityInfo.data.coord.lat}
+              description={cityInfo.data.weather[0].description}
+              windSpeed={cityInfo.data.wind.speed}
               temperature={cityInfo.data.main.temp}
+              humidity={cityInfo.data.main.humidity}
+              pressure={cityInfo.data.main.pressure}
+              deleteCity={props.deleteCity}
             />
           </li>
         );

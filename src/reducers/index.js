@@ -3,6 +3,6 @@ import { favoriteCitiesReducer } from "./favoriteCitiesReducer";
 import { mainCityReducer } from "./mainCityReducer";
 
 export const rootReducer = combineReducers({
-  // mainCity: mainCityReducer,
+  mainCity: mainCityReducer,
   favoriteCities: favoriteCitiesReducer
 });
