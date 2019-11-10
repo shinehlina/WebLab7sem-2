@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* <MainCity mainCity={this.props.mainCity.mainCity} /> */}
+        <MainCity getMainCity={this.props.getMainCityAction} data={this.props.cityData}/>
         <CityList
           favoriteCities={this.props.favoriteCities.favoriteCities}
           isFetching={this.props.favoriteCities.isFetching}
@@ -24,7 +24,7 @@ class App extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    // mainCity: store.mainCity,
+    cityData: store.mainCity,
     favoriteCities: store.favoriteCities,
 
   };
@@ -33,8 +33,8 @@ const mapStateToProps = store => {
 const mapDispatchToProps = dispatch => {
   return {
     addFavoriteAction: cityName => dispatch(addFavoriteCity(cityName)),
-    deleteFavoriteAction: cityIndex => dispatch(deleteFavoriteCity(cityIndex))
-    // getMainCityAction: () => dispatch(getMainCity())
+    deleteFavoriteAction: cityIndex => dispatch(deleteFavoriteCity(cityIndex)),
+    getMainCityAction: () => dispatch(getMainCity())
   };
 };
 
