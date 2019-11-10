@@ -2,10 +2,6 @@ import React from "react";
 import City from "../components/City";
 
 class CityList extends React.Component {
-  //   rendenCity(name, temperature) {
-  //     return <City cityName={name} temperature={temperature} />;
-  //   }
-
   onBtnClick = e => {
     if (e.keyCode === 13) {
       const city = e.target.value;
@@ -48,7 +44,6 @@ class CityList extends React.Component {
   render() {
     return (
       <div>
-        <h1> Города </h1>
         <form>
           <input
             id="city"
@@ -58,6 +53,7 @@ class CityList extends React.Component {
             onKeyDown={this.onBtnClick}
           />
         </form>
+        <h1>Favorites</h1>
         {this.props.isFetching ? (
           <p>Загрузка...</p>
         ) : (
