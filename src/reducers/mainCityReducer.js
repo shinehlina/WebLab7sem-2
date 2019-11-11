@@ -4,7 +4,9 @@ import {
   GET_MAIN_FAILED
 } from "../actions/mainLocationCity";
 
-export const initialState = {};
+export const initialState = {
+  isFetching: true
+};
 
 export function mainCityReducer(state = initialState, action) {
   switch (action.type) {
@@ -20,6 +22,7 @@ export function mainCityReducer(state = initialState, action) {
     case GET_MAIN_FAILED:
       // alert(`No info for city ${action.payload}`);
       return Object.assign({}, state, {
+        error: true,
         isFetching: false
       });
 

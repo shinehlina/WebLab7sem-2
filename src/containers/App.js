@@ -11,12 +11,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <MainCity getMainCity={this.props.getMainCityAction} data={this.props.cityData}/>
-        <CityList
+        {/* <CityList
           favoriteCities={this.props.favoriteCities.favoriteCities}
           isFetching={this.props.favoriteCities.isFetching}
           addCity={this.props.addFavoriteAction}
           deleteCity={this.props.deleteFavoriteAction}
-        />
+        /> */}
       </div>
     );
   }

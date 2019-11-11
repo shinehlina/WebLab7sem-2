@@ -10,13 +10,48 @@ class MainCity extends React.Component {
     console.log(this.props);
     return (
       <div>
-        {this.props.isFetching ? (
-          <p>Загрузка...</p>
-        ) : (
-          <p>{JSON.stringify(this.props.data)}</p>
-        )}
+        {this.props.data.isFetching ? <p>Загрузка...</p> : null}
+        {!this.props.data.isFetching && this.props.data.error ? (
+          <p>Ошибка</p>
+        ) : null}
+        {this.createCity()}
+        {/* <button onClick={this.props.getMainCity()}>Try again</button> */}
       </div>
     );
+  }
+
+  createCity() {
+    var weather = this.props.data.mainCityInfo;
+    if (!this.props.data.isFetching && !this.props.data.error) {
+      return (
+        <div>
+          <h2> {weather.name} </h2>
+          <p>
+            {" "}
+            Coordinates:{" "}
+            <i>
+              [{weather.coord.lon} : {weather.coord.lat}]
+            </i>
+          </p>
+          <p>
+            {" "}
+            Weather description: <i>{weather.weather.description}</i>
+          </p>
+          <p>
+            {" "}
+            Temperature: <i>{weather.main.temp}K </i>
+          </p>
+          <p>
+            {" "}
+            Humidity: <i>{weather.main.humidity}%</i>
+          </p>
+          <p>
+            {" "}
+            Wind: <i>{weather.wind.speed}m/c</i>
+          </p>
+        </div>
+      );
+    }
   }
 }
 
