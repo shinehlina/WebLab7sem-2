@@ -31,7 +31,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-// в наш компонент App, с помощью connect(mapStateToProps)
 export default connect(
   mapStateToProps,
   mapDispatchToProps

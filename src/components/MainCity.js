@@ -15,7 +15,7 @@ class MainCity extends React.Component {
           <p>Ошибка</p>
         ) : null}
         {this.createCity()}
-        {/* <button onClick={this.props.getMainCity()}>Try again</button> */}
+        <button onClick={this.props.getMainCity}>Try again</button>
       </div>
     );
   }
