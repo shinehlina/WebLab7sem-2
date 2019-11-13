@@ -1,3 +1,5 @@
+import { getCitiesFromStorage, updateCityList } from "../util/localStorageUtil";
+
 import {
   ADD_FAVORITE_REQUEST,
   ADD_FAVORITE_SUCCESS,
@@ -7,7 +9,7 @@ import {
 } from "../actions/favoriteCitiesAction";
 
 export const initialState = {
-  favoriteCities: [],
+  favoriteCities: getCitiesFromStorage(),
   isFetching: false
 };
 
@@ -20,6 +22,7 @@ export function favoriteCitiesReducer(state = initialState, action) {
       });
     case ADD_FAVORITE_SUCCESS:
       upFavoriteCities.push(action.payload);
+      updateCityList(upFavoriteCities)
       return Object.assign({}, state, {
         favoriteCities: upFavoriteCities,
         isFetching: false
@@ -36,6 +39,7 @@ export function favoriteCitiesReducer(state = initialState, action) {
       });
     case DELETE_FAVORITE:
       upFavoriteCities.splice(action.payload, 1);
+      updateCityList(upFavoriteCities)
       return Object.assign({}, state, {
         isFetching: false,
         favoriteCities: upFavoriteCities

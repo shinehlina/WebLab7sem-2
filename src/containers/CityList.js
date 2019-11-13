@@ -5,7 +5,10 @@ class CityList extends React.Component {
   onBtnClick = e => {
     if (e.keyCode === 13) {
       const city = e.target.value;
-      this.props.addCity(city);
+      console.log("oo")
+      if(!this.props.favoriteCities.map(c => city.toUpperCase()).includes(city.toUpperCase())) {
+        this.props.addCity(city);
+      }
       e.target.value = "";
       e.preventDefault();
     }
