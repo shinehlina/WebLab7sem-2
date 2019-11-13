@@ -31,8 +31,6 @@ export function addFavoriteCity(cityName) {
       type: ADD_FAVORITE_REQUEST,
       payload: cityName
     });
-
-    console.log("Fetching favorite " + cityName)
     fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${clientKey}`
     )

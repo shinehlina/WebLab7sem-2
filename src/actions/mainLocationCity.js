@@ -30,7 +30,6 @@ function requestAndUpdateLocation(dispatch) {
 }
 
 function getLocation(latitude, longitude, dispatch) {
-  console.log("Fetching main")
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${clientKey}`
   )

@@ -5,8 +5,7 @@ class CityList extends React.Component {
   onBtnClick = e => {
     if (e.keyCode === 13) {
       const city = e.target.value;
-      console.log("oo")
-      if(!this.props.favoriteCities.map(c => city.toUpperCase()).includes(city.toUpperCase())) {
+      if(!this.props.favoriteCities.map(c => c.cityName.toUpperCase()).includes(city.toUpperCase())) {
         this.props.addCity(city);
       }
       e.target.value = "";
@@ -15,11 +14,13 @@ class CityList extends React.Component {
   };
 
   createList(props) {
+    if(props.favoriteCities.length === 0) {
+      return (<div>No favorite cities</div>)
+    }
     let cityNameList = [];
     for (let i = 0; i < props.favoriteCities.length; i++) {
       let cityInfo = props.favoriteCities[i];
       if (cityInfo !== null) {
-        // list.push(this.rendenCity(city.name, city.temperature));
         cityNameList.push(
           <li key={cityInfo.cityName}>
             <City
@@ -37,9 +38,6 @@ class CityList extends React.Component {
           </li>
         );
       }
-    }
-    if (cityNameList.length === 0) {
-      cityNameList.push(<div>No favorite cities</div>);
     }
     return cityNameList;
   }
