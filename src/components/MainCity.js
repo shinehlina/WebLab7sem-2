@@ -15,15 +15,13 @@ class MainCity extends React.Component {
       <div>
         {needPreolader ? <Preloader size="big" /> : null}
         {hasError ? <p>Ошибка</p> : null}
-        {hasError ? (
-          <Button
-            waves="light"
-            style={{ marginRight: "5px" }}
-            onClick={this.props.getMainCity}
-          >
-            Request position again (Make s)
-          </Button>
-        ) : null}
+        <Button
+          waves="light"
+          style={{ marginRight: "5px" }}
+          onClick={this.props.getMainCity}
+        >
+          Update geolocation
+        </Button>
         {this.createCity()}
       </div>
     );
