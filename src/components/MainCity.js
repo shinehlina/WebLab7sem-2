@@ -1,4 +1,6 @@
 import React from "react";
+import { Button, Preloader } from "react-materialize";
+import CityDescription from "./CityDescription";
 
 class MainCity extends React.Component {
   componentDidMount() {
@@ -6,14 +8,23 @@ class MainCity extends React.Component {
   }
 
   render() {
+    var needPreolader = this.props.data.isFetching;
+    var hasError = this.props.data.error;
+
     return (
       <div>
-        {this.props.data.isFetching ? <p>Загрузка...</p> : null}
-        {!this.props.data.isFetching && this.props.data.error ? (
-          <p>Ошибка</p>
+        {needPreolader ? <Preloader size="big" /> : null}
+        {hasError ? <p>Ошибка</p> : null}
+        {hasError ? (
+          <Button
+            waves="light"
+            style={{ marginRight: "5px" }}
+            onClick={this.props.getMainCity}
+          >
+            Request position again (Make s)
+          </Button>
         ) : null}
         {this.createCity()}
-        <button onClick={this.props.getMainCity}>Try again</button>
       </div>
     );
   }
@@ -23,30 +34,16 @@ class MainCity extends React.Component {
     if (!this.props.data.isFetching && !this.props.data.error) {
       return (
         <div>
-          <h2> {weather.name} </h2>
-          <p>
-            {" "}
-            Coordinates:{" "}
-            <i>
-              [{weather.coord.lon} : {weather.coord.lat}]
-            </i>
-          </p>
-          <p>
-            {" "}
-            Weather description: <i>{weather.weather.description}</i>
-          </p>
-          <p>
-            {" "}
-            Temperature: <i>{weather.main.temp}K </i>
-          </p>
-          <p>
-            {" "}
-            Humidity: <i>{weather.main.humidity}%</i>
-          </p>
-          <p>
-            {" "}
-            Wind: <i>{weather.wind.speed}m/c</i>
-          </p>
+          <h2>{weather.name}</h2>
+          <CityDescription
+            longtitude={weather.coord.lon}
+            latitude={weather.coord.lat}
+            description={weather.weather.description}
+            windSpeed={weather.wind.speed}
+            temperature={weather.main.temp}
+            humidity={weather.main.humidity}
+            pressure={weather.main.pressure}
+          />
         </div>
       );
     }

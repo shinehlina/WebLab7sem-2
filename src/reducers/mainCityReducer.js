@@ -20,7 +20,6 @@ export function mainCityReducer(state = initialState, action) {
         isFetching: false
       });
     case GET_MAIN_FAILED:
-      alert(`No info for city ${action.payload}`);
       return Object.assign({}, state, {
         error: true,
         isFetching: false

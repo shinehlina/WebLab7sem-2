@@ -1,11 +1,16 @@
 import React from "react";
 import City from "../components/City";
+import { Preloader} from "react-materialize";
 
 class CityList extends React.Component {
   onBtnClick = e => {
     if (e.keyCode === 13) {
       const city = e.target.value;
-      if(!this.props.favoriteCities.map(c => c.cityName.toUpperCase()).includes(city.toUpperCase())) {
+      if (
+        !this.props.favoriteCities
+          .map(c => c.cityName.toUpperCase())
+          .includes(city.toUpperCase())
+      ) {
         this.props.addCity(city);
       }
       e.target.value = "";
@@ -14,8 +19,8 @@ class CityList extends React.Component {
   };
 
   createList(props) {
-    if(props.favoriteCities.length === 0) {
-      return (<div>No favorite cities</div>)
+    if (props.favoriteCities.length === 0) {
+      return <div>No favorite cities</div>;
     }
     let cityNameList = [];
     for (let i = 0; i < props.favoriteCities.length; i++) {
@@ -56,7 +61,7 @@ class CityList extends React.Component {
         </form>
         <h1>Favorites</h1>
         {this.props.isFetching ? (
-          <p>Загрузка...</p>
+          <Preloader size="big" />
         ) : (
           <ul>{this.createList(this.props)}</ul>
         )}
