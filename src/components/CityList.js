@@ -21,7 +21,7 @@ class CityList extends React.Component {
 
   createList(props) {
     if (props.favoriteCities.length === 0) {
-      return <div>No favorite cities</div>;
+      return <h4 className="center-align">No favorite cities</h4>;
     }
     let cityList = [];
     for (let i = 0; i < props.favoriteCities.length; i++) {
@@ -73,7 +73,9 @@ class CityList extends React.Component {
           </Col>
         </Row>
         {this.props.isFetching ? (
-          <Preloader size="big" className="center-align" />
+          <div className="center-align">
+            <Preloader size="big" />
+          </div>
         ) : (
           <Row>{this.createList(this.props)}</Row>
         )}
