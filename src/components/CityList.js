@@ -1,5 +1,5 @@
 import React from "react";
-import City from "../components/City";
+import City from "./City";
 import { Preloader} from "react-materialize";
 
 class CityList extends React.Component {

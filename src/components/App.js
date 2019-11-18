@@ -1,6 +1,6 @@
 import React from "react";
-import MainCityContainer from "./MainCityContainer";
-import CityListContainer from "./CityListContainer";
+import MainCityContainer from "../containers/MainCityContainer";
+import CityListContainer from "../containers/CityListContainer";
 
 class App extends React.Component {
   render() {

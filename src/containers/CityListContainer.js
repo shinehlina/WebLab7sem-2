@@ -1,5 +1,5 @@
 import React from "react";
-import CityList from "./CityList";
+import CityList from "../components/CityList";
 import { connect } from "react-redux";
 import {
   addFavoriteCity,
