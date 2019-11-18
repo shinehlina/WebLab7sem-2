@@ -12,6 +12,7 @@ class CityListContainer extends React.Component {
       <CityList
         favoriteCities={this.props.favoriteCities.favoriteCities}
         isFetching={this.props.favoriteCities.isFetching}
+        errorMessage={this.props.favoriteCities.errorMessage}
         addCity={this.props.addFavoriteAction}
         deleteCity={this.props.deleteFavoriteAction}
       />
@@ -20,7 +21,7 @@ class CityListContainer extends React.Component {
 }
 const mapStateToProps = store => {
   return {
-    favoriteCities: store.favoriteCities
+    favoriteCities: store.favoriteCities,
   };
 };
 

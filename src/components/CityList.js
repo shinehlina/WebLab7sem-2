@@ -1,8 +1,7 @@
 import React from "react";
 import City from "./City";
 import { Preloader } from "react-materialize";
-import Row from "react-materialize/lib/Row";
-import Col from "react-materialize/lib/Col";
+import { Row, Col, Modal } from "react-materialize";
 
 class CityList extends React.Component {
   onBtnClick = e => {
@@ -52,6 +51,11 @@ class CityList extends React.Component {
   render() {
     return (
       <div>
+        {this.props.errorMessage !== "" ? (
+          <Modal header="Error" open>
+            {this.props.errorMessage}{" "}
+          </Modal>
+        ) : null}
         <Row>
           <Col className="valign-wrapper" s={6}>
             <h5 className="">Favorites</h5>
