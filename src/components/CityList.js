@@ -1,6 +1,8 @@
 import React from "react";
 import City from "./City";
-import { Preloader} from "react-materialize";
+import { Preloader } from "react-materialize";
+import Row from "react-materialize/lib/Row";
+import Col from "react-materialize/lib/Col";
 
 class CityList extends React.Component {
   onBtnClick = e => {
@@ -50,16 +52,22 @@ class CityList extends React.Component {
   render() {
     return (
       <div>
-        <form>
-          <input
-            id="city"
-            type="text"
-            size="40"
-            placeholder="Enter your city"
-            onKeyDown={this.onBtnClick}
-          />
-        </form>
-        <h1>Favorites</h1>
+        <Row>
+          <Col className="valign-wrapper" s={6}>
+            <h5 className="">Favorites</h5>
+          </Col>
+          <Col className="valign-wrapper" s={6}>
+            <form>
+              <input
+                id="city"
+                type="text"
+                size="40"
+                placeholder="Enter your city"
+                onKeyDown={this.onBtnClick}
+              />
+            </form>
+          </Col>
+        </Row>
         {this.props.isFetching ? (
           <Preloader size="big" />
         ) : (

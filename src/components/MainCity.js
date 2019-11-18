@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Preloader } from "react-materialize";
+import { Button, Preloader, Col } from "react-materialize";
 import CityDescription from "./CityDescription";
+import Row from "react-materialize/lib/Row";
 
 class MainCity extends React.Component {
   componentDidMount() {
@@ -13,15 +14,19 @@ class MainCity extends React.Component {
 
     return (
       <div>
-        {needPreolader ? <Preloader size="big" /> : null}
-        {hasError ? <p>Ошибка</p> : null}
-        <Button
-          waves="light"
-          style={{ marginRight: "5px" }}
-          onClick={this.props.getMainCity}
-        >
-          Update geolocation
-        </Button>
+        <Row>
+          <Button
+            waves="light"
+            style={{ marginRight: "5px" }}
+            onClick={this.props.getMainCity}
+          >
+            Update geolocation
+          </Button>
+        </Row>
+        {needPreolader ? (
+          <Preloader size="big" className="center-align" />
+        ) : null}
+        {hasError ? <p className="center-align">Ошибка</p> : null}
         {this.createCity()}
       </div>
     );
@@ -29,10 +34,24 @@ class MainCity extends React.Component {
 
   createCity() {
     var weather = this.props.data.mainCityInfo;
+    console.log(weather);
     if (!this.props.data.isFetching && !this.props.data.error) {
       return (
-        <div>
-          <h2>{weather.name}</h2>
+        <Row>
+          <Col m={6} s={12}>
+            <h2>{weather.name}</h2>
+            <img
+              alt="icon"
+              src={
+                "https://openweathermap.org/img/wn/" +
+                weather.weather[0].icon +
+                "@2x.png"
+              }
+            />
+            <div style={{ fontSize: "3.9vw", float: "right" }}>
+              {Math.round(weather.main.temp - 273)}˚С
+            </div>
+          </Col>
           <CityDescription
             longtitude={weather.coord.lon}
             latitude={weather.coord.lat}
@@ -42,7 +61,7 @@ class MainCity extends React.Component {
             humidity={weather.main.humidity}
             pressure={weather.main.pressure}
           />
-        </div>
+        </Row>
       );
     }
   }
