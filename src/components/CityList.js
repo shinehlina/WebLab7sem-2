@@ -29,7 +29,7 @@ class CityList extends React.Component {
       let cityInfo1 = props.favoriteCities[i];
 
       cityList.push(
-        <Col s={12} m={6}>
+        <Col key={cityInfo1.cityName} s={12} m={6}>
           <City
             index={i}
             cityName={cityInfo1.cityName}

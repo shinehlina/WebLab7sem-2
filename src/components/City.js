@@ -5,8 +5,6 @@ import Col from "react-materialize/lib/Col";
 
 class City extends React.Component {
   render() {
-    console.log("Rendering " + this.props.cityName)
-
     return (
       <div>
         <Col s={3} m={3} className="valign-wrapper">

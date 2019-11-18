@@ -36,7 +36,6 @@ class MainCity extends React.Component {
 
   createCity() {
     var weather = this.props.data.mainCityInfo;
-    console.log(weather);
     if (!this.props.data.isFetching && !this.props.data.error) {
       return (
         <Row>
