@@ -24,29 +24,29 @@ class CityList extends React.Component {
     if (props.favoriteCities.length === 0) {
       return <div>No favorite cities</div>;
     }
-    let cityNameList = [];
+    let cityList = [];
     for (let i = 0; i < props.favoriteCities.length; i++) {
-      let cityInfo = props.favoriteCities[i];
-      if (cityInfo !== null) {
-        cityNameList.push(
-          <li key={cityInfo.cityName}>
-            <City
-              index={i}
-              cityName={cityInfo.cityName}
-              longtitude={cityInfo.data.coord.lon}
-              latitude={cityInfo.data.coord.lat}
-              description={cityInfo.data.weather[0].description}
-              windSpeed={cityInfo.data.wind.speed}
-              temperature={cityInfo.data.main.temp}
-              humidity={cityInfo.data.main.humidity}
-              pressure={cityInfo.data.main.pressure}
-              deleteCity={props.deleteCity}
-            />
-          </li>
-        );
-      }
+      let cityInfo1 = props.favoriteCities[i];
+
+      cityList.push(
+        <Col s={12} m={6}>
+          <City
+            index={i}
+            cityName={cityInfo1.cityName}
+            longtitude={cityInfo1.data.coord.lon}
+            latitude={cityInfo1.data.coord.lat}
+            description={cityInfo1.data.weather[0].description}
+            windSpeed={cityInfo1.data.wind.speed}
+            temperature={cityInfo1.data.main.temp}
+            humidity={cityInfo1.data.main.humidity}
+            pressure={cityInfo1.data.main.pressure}
+            icon={cityInfo1.data.weather[0].icon}
+            deleteCity={props.deleteCity}
+          />
+        </Col>
+      );
     }
-    return cityNameList;
+    return cityList;
   }
 
   render() {
@@ -69,9 +69,9 @@ class CityList extends React.Component {
           </Col>
         </Row>
         {this.props.isFetching ? (
-          <Preloader size="big" />
+          <Preloader size="big" className="center-align" />
         ) : (
-          <ul>{this.createList(this.props)}</ul>
+          <Row>{this.createList(this.props)}</Row>
         )}
       </div>
     );

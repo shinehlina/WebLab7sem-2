@@ -12,11 +12,13 @@ export function mainCityReducer(state = initialState, action) {
   switch (action.type) {
     case GET_MAIN_REQUEST:
       return Object.assign({}, state, {
+        error: false,
         isFetching: true
       });
     case GET_MAIN_SUCCESS:
       return Object.assign({}, state, {
         mainCityInfo: action.payload,
+        error: false,
         isFetching: false
       });
     case GET_MAIN_FAILED:

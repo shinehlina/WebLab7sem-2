@@ -24,9 +24,11 @@ class MainCity extends React.Component {
           </Button>
         </Row>
         {needPreolader ? (
-          <Preloader size="big" className="center-align" />
+          <div className="center-align">
+            <Preloader size="big" />
+          </div>
         ) : null}
-        {hasError ? <p className="center-align">Ошибка</p> : null}
+        {hasError ? <p className="center-align">Error</p> : null}
         {this.createCity()}
       </div>
     );
@@ -52,15 +54,17 @@ class MainCity extends React.Component {
               {Math.round(weather.main.temp - 273)}˚С
             </div>
           </Col>
-          <CityDescription
-            longtitude={weather.coord.lon}
-            latitude={weather.coord.lat}
-            description={weather.weather.description}
-            windSpeed={weather.wind.speed}
-            temperature={weather.main.temp}
-            humidity={weather.main.humidity}
-            pressure={weather.main.pressure}
-          />
+          <Col m={6} s={12}>
+            <CityDescription
+              longtitude={weather.coord.lon}
+              latitude={weather.coord.lat}
+              description={weather.weather.description}
+              windSpeed={weather.wind.speed}
+              temperature={weather.main.temp}
+              humidity={weather.main.humidity}
+              pressure={weather.main.pressure}
+            />
+          </Col>
         </Row>
       );
     }
