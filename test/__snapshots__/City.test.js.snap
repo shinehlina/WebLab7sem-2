@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`City didn't changed 1`] = `
+<div>
+  <Col
+    className="valign-wrapper"
+    m={3}
+    s={3}
+  >
+    <h6>
+       
+      Moscow
+       
+    </h6>
+  </Col>
+  <Col
+    className="valign-wrapper"
+    m={3}
+    s={3}
+  >
+    <h6
+      style={
+        Object {
+          "float": "right",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      0
+      ˚С
+    </h6>
+  </Col>
+  <Col
+    className="valign-wrapper"
+    m={3}
+    s={4}
+  >
+    <img
+      alt="icon"
+      src="https://openweathermap.org/img/wn/1.png"
+    />
+  </Col>
+  <Col
+    className="valign-wrapper"
+    m={3}
+    s={3}
+  >
+    <Button
+      className="grey darken-1"
+      floating={true}
+      icon={
+        <Icon>
+           remove 
+        </Icon>
+      }
+      node="button"
+      onClick={[Function]}
+      small={true}
+      waves="light"
+    />
+  </Col>
+  <CityDescription
+    description="windy"
+    humidity={20}
+    latitude={30}
+    longtitude={60}
+    pressure={1000}
+    temperature={273}
+    windSpeed={10}
+  />
+</div>
+`;

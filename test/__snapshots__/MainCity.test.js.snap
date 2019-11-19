@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainCity didn't changed 1`] = `
+<div>
+  <Row>
+    <Button
+      node="button"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginRight": "5px",
+        }
+      }
+      waves="light"
+    >
+      Update geolocation
+    </Button>
+  </Row>
+  <Row>
+    <Col
+      m={6}
+      s={12}
+    >
+      <h2 />
+      <img
+        alt="icon"
+        src="https://openweathermap.org/img/wn/1@2x.png"
+      />
+      <div
+        style={
+          Object {
+            "float": "right",
+            "fontSize": "3.9vw",
+          }
+        }
+      >
+        5
+        ˚С
+      </div>
+    </Col>
+    <Col
+      m={6}
+      s={12}
+    >
+      <CityDescription
+        humidity={93}
+        latitude={60.03}
+        longtitude={30.33}
+        pressure={1028}
+        temperature={278.02}
+        windSpeed={3}
+      />
+    </Col>
+  </Row>
+</div>
+`;
+
+exports[`MainCity error 1`] = `
+<div>
+  <Row>
+    <Button
+      node="button"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginRight": "5px",
+        }
+      }
+      waves="light"
+    >
+      Update geolocation
+    </Button>
+  </Row>
+  <p
+    className="center-align"
+  >
+    Error
+  </p>
+</div>
+`;
+
+exports[`MainCity loading 1`] = `
+<div>
+  <Row>
+    <Button
+      node="button"
+      onClick={[Function]}
+      style={
+        Object {
+          "marginRight": "5px",
+        }
+      }
+      waves="light"
+    >
+      Update geolocation
+    </Button>
+  </Row>
+  <div
+    className="center-align"
+  >
+    <Preloader
+      active={true}
+      color="blue"
+      flashing={false}
+      size="big"
+    />
+  </div>
+</div>
+`;

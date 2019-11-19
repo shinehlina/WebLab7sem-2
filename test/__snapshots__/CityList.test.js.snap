@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityList error has cities didn't changed 1`] = `
+<div>
+  <Modal
+    actions={
+      Array [
+        <Button
+          flat={true}
+          modal="close"
+          node="button"
+          waves="green"
+        >
+          Close
+        </Button>,
+      ]
+    }
+    bottomSheet={false}
+    fixedFooter={false}
+    header="Error"
+    id="modal-0"
+    open={true}
+    options={
+      Object {
+        "dismissible": true,
+        "endingTop": "10%",
+        "inDuration": 250,
+        "onCloseEnd": null,
+        "onCloseStart": null,
+        "onOpenEnd": null,
+        "onOpenStart": null,
+        "opacity": 0.5,
+        "outDuration": 250,
+        "preventScrolling": true,
+        "startingTop": "4%",
+      }
+    }
+  >
+    Error
+     
+  </Modal>
+  <Row>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <h5
+        className=""
+      >
+        Favorites
+      </h5>
+    </Col>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <form>
+        <input
+          id="city"
+          onKeyDown={[Function]}
+          placeholder="Enter your city"
+          size="40"
+          type="text"
+        />
+      </form>
+    </Col>
+  </Row>
+  <Row>
+    <Col
+      key="Kiev"
+      m={6}
+      s={12}
+    >
+      <City
+        cityName="Kiev"
+        deleteCity={[Function]}
+        description="light rain"
+        humidity={93}
+        icon="1"
+        index={0}
+        latitude={60.03}
+        longtitude={30.33}
+        pressure={1028}
+        temperature={278.02}
+        windSpeed={3}
+      />
+    </Col>
+  </Row>
+</div>
+`;
+
+exports[`CityList error no cities didn't changed 1`] = `
+<div>
+  <Modal
+    actions={
+      Array [
+        <Button
+          flat={true}
+          modal="close"
+          node="button"
+          waves="green"
+        >
+          Close
+        </Button>,
+      ]
+    }
+    bottomSheet={false}
+    fixedFooter={false}
+    header="Error"
+    id="modal-0"
+    open={true}
+    options={
+      Object {
+        "dismissible": true,
+        "endingTop": "10%",
+        "inDuration": 250,
+        "onCloseEnd": null,
+        "onCloseStart": null,
+        "onOpenEnd": null,
+        "onOpenStart": null,
+        "opacity": 0.5,
+        "outDuration": 250,
+        "preventScrolling": true,
+        "startingTop": "4%",
+      }
+    }
+  >
+    Error
+     
+  </Modal>
+  <Row>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <h5
+        className=""
+      >
+        Favorites
+      </h5>
+    </Col>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <form>
+        <input
+          id="city"
+          onKeyDown={[Function]}
+          placeholder="Enter your city"
+          size="40"
+          type="text"
+        />
+      </form>
+    </Col>
+  </Row>
+  <Row>
+    <h4
+      className="center-align"
+    >
+      No favorite cities
+    </h4>
+  </Row>
+</div>
+`;
+
+exports[`CityList loading didn't changed 1`] = `
+<div>
+  <Row>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <h5
+        className=""
+      >
+        Favorites
+      </h5>
+    </Col>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <form>
+        <input
+          id="city"
+          onKeyDown={[Function]}
+          placeholder="Enter your city"
+          size="40"
+          type="text"
+        />
+      </form>
+    </Col>
+  </Row>
+  <div
+    className="center-align"
+  >
+    <Preloader
+      active={true}
+      color="blue"
+      flashing={false}
+      size="big"
+    />
+  </div>
+</div>
+`;
+
+exports[`CityList success didn't changed 1`] = `
+<div>
+  <Row>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <h5
+        className=""
+      >
+        Favorites
+      </h5>
+    </Col>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <form>
+        <input
+          id="city"
+          onKeyDown={[Function]}
+          placeholder="Enter your city"
+          size="40"
+          type="text"
+        />
+      </form>
+    </Col>
+  </Row>
+  <Row>
+    <Col
+      key="Kiev"
+      m={6}
+      s={12}
+    >
+      <City
+        cityName="Kiev"
+        deleteCity={[Function]}
+        description="light rain"
+        humidity={93}
+        icon="1"
+        index={0}
+        latitude={60.03}
+        longtitude={30.33}
+        pressure={1028}
+        temperature={278.02}
+        windSpeed={3}
+      />
+    </Col>
+  </Row>
+</div>
+`;
