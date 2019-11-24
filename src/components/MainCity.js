@@ -57,7 +57,7 @@ class MainCity extends React.Component {
             <CityDescription
               longtitude={weather.coord.lon}
               latitude={weather.coord.lat}
-              description={weather.weather.description}
+              description={weather.weather[0].description}
               windSpeed={weather.wind.speed}
               temperature={weather.main.temp}
               humidity={weather.main.humidity}
