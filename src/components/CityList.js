@@ -4,6 +4,12 @@ import { Preloader } from "react-materialize";
 import { Row, Col, Modal } from "react-materialize";
 
 class CityList extends React.Component {
+  componentDidMount() {
+    for (var i = 0; i < this.props.favoriteCities; i++) {
+      this.props.addCity(this.props.favoriteCities[i].cityName);
+    }
+  }
+
   onBtnClick = e => {
     if (e.keyCode === 13) {
       const city = e.target.value;
@@ -27,19 +33,23 @@ class CityList extends React.Component {
     for (let i = 0; i < props.favoriteCities.length; i++) {
       let cityInfo1 = props.favoriteCities[i];
 
+      if (cityInfo1.errorMessage !== "") {
+        var errorMsg = cityInfo1.errorMessage;
+        return (
+          <Modal header="Error" open>
+            {errorMsg}{" "}
+          </Modal>
+        );
+      }
+
       cityList.push(
         <Col key={cityInfo1.cityName} s={12} m={6}>
           <City
             index={i}
             cityName={cityInfo1.cityName}
-            longtitude={cityInfo1.data.coord.lon}
-            latitude={cityInfo1.data.coord.lat}
-            description={cityInfo1.data.weather[0].description}
-            windSpeed={cityInfo1.data.wind.speed}
-            temperature={cityInfo1.data.main.temp}
-            humidity={cityInfo1.data.main.humidity}
-            pressure={cityInfo1.data.main.pressure}
-            icon={cityInfo1.data.weather[0].icon}
+            isFetching={cityInfo1.isFetching}
+            errorMessage={cityInfo1.errorMessage}
+            cityInfo={cityInfo1.cityInfo}
             deleteCity={props.deleteCity}
           />
         </Col>
@@ -49,13 +59,18 @@ class CityList extends React.Component {
   }
 
   render() {
+    if (this.props.error !== "") {
+      return (
+        <div>
+          <Modal header="Error" open>
+            {this.props.error}{" "}
+          </Modal>
+        </div>
+      );
+    }
+
     return (
       <div>
-        {this.props.errorMessage !== "" ? (
-          <Modal header="Error" open>
-            {this.props.errorMessage}{" "}
-          </Modal>
-        ) : null}
         <Row>
           <Col className="valign-wrapper" s={6}>
             <h5 className="">Favorites</h5>
@@ -72,7 +87,7 @@ class CityList extends React.Component {
             </form>
           </Col>
         </Row>
-        {this.props.isFetching ? (
+        {this.props.areFetching ? (
           <div className="center-align">
             <Preloader size="big" />
           </div>
@@ -83,5 +98,4 @@ class CityList extends React.Component {
     );
   }
 }
-
 export default CityList;
