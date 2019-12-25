@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityDescription didn't changed 1`] = `
+<Table
+  className=" grey lighten-1"
+>
+  <tbody>
+    <tr
+      style={
+        Object {
+          "borderColor": "white",
+        }
+      }
+    >
+      <td>
+        Coordinates
+      </td>
+      <td
+        className="right-align"
+      >
+        [60 : 30]
+      </td>
+    </tr>
+    <tr
+      style={
+        Object {
+          "borderColor": "white",
+        }
+      }
+    >
+      <td>
+        Weather description
+      </td>
+      <td
+        className="right-align"
+      >
+        windy
+      </td>
+    </tr>
+    <tr
+      style={
+        Object {
+          "borderColor": "white",
+        }
+      }
+    >
+      <td>
+        Temperature
+      </td>
+      <td
+        className="right-align"
+      >
+        273K
+      </td>
+    </tr>
+    <tr
+      style={
+        Object {
+          "borderColor": "white",
+        }
+      }
+    >
+      <td>
+        Humidity
+      </td>
+      <td
+        className="right-align"
+      >
+        20%
+      </td>
+    </tr>
+    <tr
+      style={
+        Object {
+          "borderColor": "white",
+        }
+      }
+    >
+      <td>
+        Wind
+      </td>
+      <td
+        className="right-align"
+      >
+        10m/c
+      </td>
+    </tr>
+    <tr
+      style={
+        Object {
+          "borderColor": "white",
+        }
+      }
+    >
+      <td>
+        Pressure
+      </td>
+      <td
+        className="right-align"
+      >
+        1000
+      </td>
+    </tr>
+  </tbody>
+</Table>
+`;

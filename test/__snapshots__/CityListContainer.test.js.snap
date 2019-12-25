@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CityList error has cities didn't changed 1`] = `
+<div>
+  <Modal
+    actions={
+      Array [
+        <Button
+          flat={true}
+          modal="close"
+          node="button"
+          waves="green"
+        >
+          Close
+        </Button>,
+      ]
+    }
+    bottomSheet={false}
+    fixedFooter={false}
+    header="Error"
+    id="modal-0"
+    open={true}
+    options={
+      Object {
+        "dismissible": true,
+        "endingTop": "10%",
+        "inDuration": 250,
+        "onCloseEnd": null,
+        "onCloseStart": null,
+        "onOpenEnd": null,
+        "onOpenStart": null,
+        "opacity": 0.5,
+        "outDuration": 250,
+        "preventScrolling": true,
+        "startingTop": "4%",
+      }
+    }
+  >
+    Error
+     
+  </Modal>
+</div>
+`;
+
+exports[`CityList error no cities didn't changed 1`] = `
+<div>
+  <Modal
+    actions={
+      Array [
+        <Button
+          flat={true}
+          modal="close"
+          node="button"
+          waves="green"
+        >
+          Close
+        </Button>,
+      ]
+    }
+    bottomSheet={false}
+    fixedFooter={false}
+    header="Error"
+    id="modal-0"
+    open={true}
+    options={
+      Object {
+        "dismissible": true,
+        "endingTop": "10%",
+        "inDuration": 250,
+        "onCloseEnd": null,
+        "onCloseStart": null,
+        "onOpenEnd": null,
+        "onOpenStart": null,
+        "opacity": 0.5,
+        "outDuration": 250,
+        "preventScrolling": true,
+        "startingTop": "4%",
+      }
+    }
+  >
+    Error
+     
+  </Modal>
+</div>
+`;
+
+exports[`CityList loading didn't changed 1`] = `
+<div>
+  <Row>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <h5
+        className=""
+      >
+        Favorites
+      </h5>
+    </Col>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <form>
+        <input
+          id="city"
+          onKeyDown={[Function]}
+          placeholder="Enter your city"
+          size="40"
+          type="text"
+        />
+      </form>
+    </Col>
+  </Row>
+  <div
+    className="center-align"
+  >
+    <Preloader
+      active={true}
+      color="blue"
+      flashing={false}
+      size="big"
+    />
+  </div>
+</div>
+`;
+
+exports[`CityList success didn't changed 1`] = `
+<div>
+  <Row>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <h5
+        className=""
+      >
+        Favorites
+      </h5>
+    </Col>
+    <Col
+      className="valign-wrapper"
+      s={6}
+    >
+      <form>
+        <input
+          id="city"
+          onKeyDown={[Function]}
+          placeholder="Enter your city"
+          size="40"
+          type="text"
+        />
+      </form>
+    </Col>
+  </Row>
+  <Row>
+    <Col
+      key="Kiev"
+      m={6}
+      s={12}
+    >
+      <City
+        cityName="Kiev"
+        deleteCity={[Function]}
+        index={0}
+      />
+    </Col>
+  </Row>
+</div>
+`;
+
+exports[`CityListContainer didn't change  Empty storage 1`] = `
+<ContextProvider
+  value={null}
+>
+  <CityListContainer
+    addFavoriteAction={[Function]}
+    deleteFavoriteAction={[Function]}
+    getCityList={[Function]}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    value={Array []}
+  />
+</ContextProvider>
+`;
+
+exports[`CityListContainer didn't change  Storage has elements 1`] = `
+<ContextProvider
+  value={null}
+>
+  <CityListContainer
+    addFavoriteAction={[Function]}
+    deleteFavoriteAction={[Function]}
+    getCityList={[Function]}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    value={
+      Array [
+        Object {
+          "cityName": "Kiev",
+          "data": Object {
+            "coord": Object {
+              "lat": 60.03,
+              "lon": 30.33,
+            },
+            "main": Object {
+              "humidity": 93,
+              "pressure": 1028,
+              "temp": 278.02,
+            },
+            "weather": Array [
+              Object {
+                "description": "light rain",
+                "icon": "1",
+                "main": "Rain",
+              },
+            ],
+            "wind": Object {
+              "speed": 3,
+            },
+          },
+        },
+      ]
+    }
+  />
+</ContextProvider>
+`;
