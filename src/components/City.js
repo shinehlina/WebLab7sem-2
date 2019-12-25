@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Icon } from "react-materialize";
 import CityDescription from "./CityDescription";
 import { Preloader } from "react-materialize";
-import { Row, Col, Modal } from "react-materialize";
+import {Col, Modal } from "react-materialize";
 
 class City extends React.Component {
   render() {
@@ -54,9 +54,7 @@ class City extends React.Component {
             className="grey darken-1"
             waves="light"
             icon={<Icon> remove </Icon>}
-            onClick={() =>
-              this.props.deleteCity(this.props.index, this.props.cityName)
-            }
+            onClick={() => this.props.deleteCity(this.props.index, this.props.cityName)}
           />
         </Col>
 

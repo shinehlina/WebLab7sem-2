@@ -1,37 +1,54 @@
-import { getCitiesFromStorage, updateCityList } from "../util/localStorageUtil";
+import { updateCityList } from "../util/localStorageUtil";
 
 import {
-  ADD_FAVORITE_REQUEST,
-  ADD_FAVORITE_SUCCESS,
-  ADD_FAVORITE_FAILED,
-  ADD_FAVORITE_NO_CITY,
-  DELETE_FAVORITE
+  GET_FAVORITE_REQUEST,
+  GET_FAVORITE_SUCCESS,
+  GET_FAVORITE_FAILED,
+  GET_FAVORITE_NO_CITY,
+  DELETE_FAVORITE,
+  GET_ALL_CITIES_SUCCESS
 } from "../actions/favoriteCitiesAction";
 
 export const initialState = {
-  favoriteCities: getCitiesFromStorage(),
+  favoriteCities: [],
+  areFetching: true,
   errorMessage: ""
 };
 
 export function favoriteCitiesReducer(state = initialState, action) {
-  var upFavoriteCities = state.favoriteCities.slice();
   var citiesInfo;
   var updatedCityInfo;
   switch (action.type) {
-    case ADD_FAVORITE_REQUEST:
+    case GET_ALL_CITIES_SUCCESS:
+      var info = action.payload.map(city => ({
+        cityName: city,
+        isFetching: true,
+        errorMessage: ""
+      }));
+      return Object.assign({}, state, {
+        areFetching: false,
+        favoriteCities: info
+      });
+    case GET_FAVORITE_REQUEST:
+      citiesInfo = state.favoriteCities
+        .slice()
+        .filter(
+          city => !(city.errorMessage !== "" && city.isFetching === false)
+        );
       updatedCityInfo = {
         cityName: action.payload,
         errorMessage: "",
         isFetching: true
       };
-      upFavoriteCities.push(updatedCityInfo);
+      citiesInfo.push(updatedCityInfo);
       return Object.assign({}, state, {
-        favoriteCities: upFavoriteCities
+        favoriteCities: citiesInfo,
+        areFetching: false
       });
-    case ADD_FAVORITE_SUCCESS:
-      citiesInfo = upFavoriteCities.filter(
-        a => a.cityName !== action.payload.cityName
-      );
+    case GET_FAVORITE_SUCCESS:
+      citiesInfo = state.favoriteCities
+        .slice()
+        .filter(a => a.cityName !== action.payload.cityName);
       updatedCityInfo = {
         cityName: action.payload.cityName,
         cityInfo: action.payload.data,
@@ -43,8 +60,10 @@ export function favoriteCitiesReducer(state = initialState, action) {
       return Object.assign({}, state, {
         favoriteCities: citiesInfo
       });
-    case ADD_FAVORITE_NO_CITY:
-      citiesInfo = upFavoriteCities.filter(a => a.cityName !== action.payload);
+    case GET_FAVORITE_NO_CITY:
+      citiesInfo = state.favoriteCities
+        .slice()
+        .filter(a => a.cityName !== action.payload);
       updatedCityInfo = {
         cityName: action.payload,
         errorMessage: `No info for city ${action.payload}`,
@@ -54,8 +73,10 @@ export function favoriteCitiesReducer(state = initialState, action) {
       return Object.assign({}, state, {
         favoriteCities: citiesInfo
       });
-    case ADD_FAVORITE_FAILED:
-      citiesInfo = upFavoriteCities.filter(a => a.cityName !== action.payload);
+    case GET_FAVORITE_FAILED:
+      citiesInfo = state.favoriteCities
+        .slice()
+        .filter(a => a.cityName !== action.payload);
       updatedCityInfo = {
         cityName: action.payload,
         errorMessage: `Error occured`,
@@ -65,14 +86,14 @@ export function favoriteCitiesReducer(state = initialState, action) {
       return Object.assign({}, state, {
         favoriteCities: citiesInfo
       });
-
     case DELETE_FAVORITE:
-      upFavoriteCities.splice(action.payload, 1);
-      updateCityList(upFavoriteCities);
+      var arrayCopy = state.favoriteCities.slice();
+      arrayCopy.splice(action.payload, 1);
+      updateCityList(arrayCopy);
       return Object.assign({}, state, {
         errorMessage: "",
         isFetching: false,
-        favoriteCities: upFavoriteCities
+        favoriteCities: arrayCopy
       });
     default:
       return state;

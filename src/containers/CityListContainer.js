@@ -2,8 +2,9 @@ import React from "react";
 import CityList from "../components/CityList";
 import { connect } from "react-redux";
 import {
-  addFavoriteCity,
-  deleteFavoriteCity
+  getCityInfo,
+  deleteFavoriteCity,
+  fetchCitiesNames
 } from "../actions/favoriteCitiesAction";
 
 class CityListContainer extends React.Component {
@@ -11,10 +12,11 @@ class CityListContainer extends React.Component {
     return (
       <CityList
         favoriteCities={this.props.favoriteCities.favoriteCities}
-        isFetching={this.props.favoriteCities.isFetching}
-        errorMessage={this.props.favoriteCities.errorMessage}
+        areFetching={this.props.favoriteCities.areFetching}
+        error={this.props.favoriteCities.errorMessage}
         addCity={this.props.addFavoriteAction}
         deleteCity={this.props.deleteFavoriteAction}
+        getCityList={this.props.getCityList}
       />
     );
   }
@@ -27,8 +29,9 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addFavoriteAction: cityName => dispatch(addFavoriteCity(cityName)),
-    deleteFavoriteAction: cityIndex => dispatch(deleteFavoriteCity(cityIndex))
+    addFavoriteAction: cityName => dispatch(getCityInfo(cityName)),
+    deleteFavoriteAction: (cityIndex, cityName) => dispatch(deleteFavoriteCity(cityIndex, cityName)),
+    getCityList: () => dispatch(fetchCitiesNames())
   };
 };
 

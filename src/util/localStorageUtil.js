@@ -4,20 +4,13 @@ export function getCitiesFromStorage() {
     return [];
   }
   var cities = JSON.parse(citiesString);
-  var resultArray = [];
-  for (let i = 0; i < cities.length; i++) {
-    resultArray.push({
-      cityName: cities[i],
-      isFetching: true
-    });
-  }
-  return resultArray;
+  return cities;
 }
 
 export function updateCityList(updatesCityList) {
   window.localStorage.setItem(
     "favoriteCities",
-    JSON.stringify(updatesCityList.map(cityInfo => cityInfo.cityName))
+    JSON.stringify(updatesCityList.filter(cityInfo => cityInfo.errorMessage === "").map(cityInfo => cityInfo.cityName))
   );
   return updatesCityList;
 }

@@ -5,9 +5,7 @@ import { Row, Col, Modal } from "react-materialize";
 
 class CityList extends React.Component {
   componentDidMount() {
-    for (var i = 0; i < this.props.favoriteCities; i++) {
-      this.props.addCity(this.props.favoriteCities[i].cityName);
-    }
+    this.props.getCityList();
   }
 
   onBtnClick = e => {
@@ -32,15 +30,6 @@ class CityList extends React.Component {
     let cityList = [];
     for (let i = 0; i < props.favoriteCities.length; i++) {
       let cityInfo1 = props.favoriteCities[i];
-
-      if (cityInfo1.errorMessage !== "") {
-        var errorMsg = cityInfo1.errorMessage;
-        return (
-          <Modal header="Error" open>
-            {errorMsg}{" "}
-          </Modal>
-        );
-      }
 
       cityList.push(
         <Col key={cityInfo1.cityName} s={12} m={6}>
@@ -98,4 +87,5 @@ class CityList extends React.Component {
     );
   }
 }
+
 export default CityList;
